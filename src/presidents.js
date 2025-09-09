@@ -442,7 +442,7 @@ function sortPresidentsByBirthYear(presidentsArr) {
 function getAgeAtInauguration(presidentsArr){
   return presidentsArr.map(president => {
     const newPresident = president;
-    newPresident.ageAtInauguration = president.tookOffice;
+    newPresident.ageAtInauguration = president.tookOffice - president.birthYear;
     return newPresident;
   });
 }
@@ -464,9 +464,5 @@ function countRepublicanPresidents(presidentsArr) {
 
 // Bonus: Iteration 8 | Sort Presidents by Name - `sort()`
 function sortPresidentsByName(presidentsArr) {
-return presidentsArr.sort((a, b) => {
-  const nameA = a.name.toUpperCase();
-  const nameB = b.name.toUpperCase();
-  return (nameA > nameB)
-});
+return presidentsArr.sort((a, b) => a.name.localeCompare(b.name));
 }
